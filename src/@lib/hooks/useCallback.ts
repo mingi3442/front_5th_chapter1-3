@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import { DependencyList } from "react";
 import { shallowEquals } from "../equalities";

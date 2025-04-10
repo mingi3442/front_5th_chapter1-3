@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, Dispatch, SetStateAction } from "react";
 
 export interface Notification {
   id: number;
@@ -8,8 +8,7 @@ export interface Notification {
 
 export interface NotificationContextType {
   notifications: Notification[];
-  addNotification: (message: string, type: Notification["type"]) => void;
-  removeNotification: (id: number) => void;
+  setNotifications: Dispatch<SetStateAction<Notification[]>>;
 }
 
 export const NotificationContext = createContext<

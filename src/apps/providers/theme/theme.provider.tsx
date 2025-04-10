@@ -1,4 +1,5 @@
 import { ReactNode, useState } from "react";
+import { useMemo } from "../../../@lib";
 import { ThemeContext } from "../../../shared/theme";
 
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
@@ -6,12 +7,16 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [theme, setTheme] = useState("light");
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-  };
+  const themeContextValue = useMemo(
+    () => ({
+      theme,
+      setTheme,
+    }),
+    [theme],
+  );
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={themeContextValue}>
       {children}
     </ThemeContext.Provider>
   );

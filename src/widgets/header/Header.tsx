@@ -6,28 +6,10 @@ import { renderLog } from "../../shared/utils";
 // Header 컴포넌트
 export const Header: React.FC = memo(() => {
   renderLog("Header rendered");
-  // const [user, setUser] = useState<User | null>(null);
   const { theme, toggleTheme } = useTheme();
-  // const { addNotification } = useNotification();
   const { user, login, logout } = useAuthentication();
 
-  // const handleLogin = useCallback(() => {
-  //   // 실제 애플리케이션에서는 사용자 입력을 받아야 합니다.
-  //   const loginUser = AuthenticationService().login(
-  //     "user@example.com",
-  //     "password",
-  //   );
-  //   setUser(loginUser);
-  //   addNotification("성공적으로 로그인되었습니다", "success");
-  // }, [addNotification]);
-
-  // const handleLogout = useCallback(() => {
-  //   AuthenticationService().logout();
-  //   setUser(null);
-  //   addNotification("로그아웃되었습니다", "info");
-  // }, [addNotification]);
   const handleLogin = () => {
-    // 실제 애플리케이션에서는 사용자 입력을 받아야 합니다.
     login("user@example.com", "password");
   };
 
